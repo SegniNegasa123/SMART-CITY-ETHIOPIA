@@ -15,6 +15,11 @@
 
 <br/>
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FSegniNegasa123%2FSMART-CITY-ETHIOPIA&project-name=smart-city-ethiopia&repository-name=smart-city-ethiopia)
+
+
+<br/>
+
 [🌟 Key Highlights](#-key-highlights) •
 [🏛️ Executive Summary](#-executive-summary) •
 [📐 System Architecture](#-system-architecture) •

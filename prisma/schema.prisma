@@ -1,0 +1,305 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum UserRole {
+  SUPER_ADMIN
+  ADMIN
+  OFFICIAL
+  AUDITOR
+  VIEWER
+  CITIZEN
+}
+
+enum ServiceCategory {
+  CIVIL
+  LAND
+  COMMERCE
+  TRANSPORT
+  ENVIRONMENT
+}
+
+enum ApplicationStatus {
+  DRAFT
+  SUBMITTED
+  UNDER_REVIEW
+  IN_INSPECTION
+  APPROVED
+  REJECTED
+  CANCELLED
+}
+
+enum ComplaintPriority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+enum ComplaintStatus {
+  OPEN
+  IN_PROGRESS
+  RESOLVED
+  CLOSED
+}
+
+enum ProjectStatus {
+  PLANNING
+  TENDER_OPEN
+  IN_PROGRESS
+  COMPLETED
+  ON_HOLD
+}
+
+model User {
+  id              String         @id @default(uuid())
+  nationalId      String?        @unique
+  email           String         @unique
+  phone           String?        @unique
+  passwordHash    String?
+  nameEn          String
+  nameAm          String?
+  role            UserRole       @default(CITIZEN)
+  subCity         String?
+  woreda          String?
+  houseNumber     String?
+  avatarUrl       String?
+  isVerified      Boolean        @default(false)
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+
+  applications    Application[]
+  complaints      Complaint[]
+  appointments    Appointment[]
+  notifications   Notification[]
+  auditLogs       AuditLog[]     @relation("UserAuditLogs")
+
+  @@index([nationalId])
+  @@index([email])
+  @@index([role])
+}
+
+model Service {
+  id              String          @id @default(uuid())
+  slug            String          @unique
+  titleEn         String
+  titleAm         String
+  category        ServiceCategory
+  descriptionEn   String
+  descriptionAm   String
+  feeETB          Decimal         @default(0.0)
+  processingDays  Int             @default(3)
+  iconName        String          @default("FileText")
+  isActive        Boolean         @default(true)
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  applications    Application[]
+
+  @@index([category])
+  @@index([slug])
+}
+
+model Application {
+  id                  String                    @id @default(uuid())
+  referenceNumber     String                    @unique
+  userId              String
+  serviceId           String
+  subCity             String
+  woreda              String?
+  status              ApplicationStatus         @default(SUBMITTED)
+  formDataJson        Json
+  assignedOfficerId   String?
+  decisionNote        String?
+  qrCertificateUrl    String?
+  submittedAt         DateTime                  @default(now())
+  updatedAt           DateTime                  @updatedAt
+
+  user                User                      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  service             Service                   @relation(fields: [serviceId], references: [id], onDelete: Restrict)
+  documents           Document[]
+  statusHistory       ApplicationStatusHistory[]
+
+  @@index([referenceNumber])
+  @@index([userId])
+  @@index([serviceId])
+  @@index([status])
+  @@index([subCity])
+}
+
+model Document {
+  id              String       @id @default(uuid())
+  applicationId   String
+  fileName        String
+  fileType        String
+  fileSize        Int
+  s3Url           String
+  isVerified      Boolean      @default(false)
+  uploadedAt      DateTime     @default(now())
+
+  application     Application  @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+
+  @@index([applicationId])
+}
+
+model ApplicationStatusHistory {
+  id              String            @id @default(uuid())
+  applicationId   String
+  status          ApplicationStatus
+  noteEn          String?
+  noteAm          String?
+  officerName     String?
+  createdAt       DateTime          @default(now())
+
+  application     Application       @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+
+  @@index([applicationId])
+}
+
+model Complaint {
+  id              String            @id @default(uuid())
+  referenceNumber String            @unique
+  userId          String
+  category        String
+  title           String
+  description     String
+  subCity         String
+  woreda          String?
+  latitude        Float?
+  longitude       Float?
+  priority        ComplaintPriority @default(MEDIUM)
+  status          ComplaintStatus   @default(OPEN)
+  assignedDept    String?
+  resolutionNote  String?
+  imageUrls       String[]
+  submittedAt     DateTime          @default(now())
+  resolvedAt      DateTime?
+
+  user            User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([referenceNumber])
+  @@index([userId])
+  @@index([subCity])
+  @@index([status])
+}
+
+model Project {
+  id                String             @id @default(uuid())
+  slug              String             @unique
+  titleEn           String
+  titleAm           String
+  category          String
+  budgetUSD         String
+  budgetETB         String
+  progressPercent   Int                @default(0)
+  status            ProjectStatus      @default(IN_PROGRESS)
+  targetCompletion  String
+  leadAgency        String
+  partnerAgencies   String[]
+  descriptionEn     String
+  descriptionAm     String
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+
+  milestones        ProjectMilestone[]
+
+  @@index([slug])
+  @@index([status])
+}
+
+model ProjectMilestone {
+  id          String   @id @default(uuid())
+  projectId   String
+  title       String
+  completed   Boolean  @default(false)
+  targetDate  String
+
+  project     Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+}
+
+model Article {
+  id            String       @id @default(uuid())
+  slug          String       @unique
+  titleEn       String
+  titleAm       String
+  summaryEn     String
+  summaryAm     String
+  contentEn     String?      @db.Text
+  contentAm     String?      @db.Text
+  category      String
+  publishedAt   DateTime     @default(now())
+  readTime      String       @default("3 min read")
+  isFeatured    Boolean      @default(false)
+  coverImageUrl String?
+
+  @@index([slug])
+  @@index([category])
+}
+
+model Appointment {
+  id            String    @id @default(uuid())
+  userId        String
+  department    String
+  subCity       String
+  scheduledDate DateTime
+  reason        String
+  status        String    @default("CONFIRMED")
+  createdAt     DateTime  @default(now())
+
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([subCity])
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  userId    String
+  titleEn   String
+  titleAm   String
+  bodyEn    String
+  bodyAm    String
+  isRead    Boolean  @default(false)
+  linkUrl   String?
+  createdAt DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model Announcement {
+  id          String    @id @default(uuid())
+  titleEn     String
+  titleAm     String
+  messageEn   String
+  messageAm   String
+  severity    String    @default("INFO")
+  isActive    Boolean   @default(true)
+  startsAt    DateTime  @default(now())
+  expiresAt   DateTime?
+}
+
+model AuditLog {
+  id          String   @id @default(uuid())
+  actorId     String
+  action      String
+  entityType  String
+  entityId    String
+  diffPayload Json?
+  ipAddress   String?
+  timestamp   DateTime @default(now())
+
+  actor       User     @relation("UserAuditLogs", fields: [actorId], references: [id], onDelete: Restrict)
+
+  @@index([actorId])
+  @@index([entityType, entityId])
+  @@index([timestamp])
+}

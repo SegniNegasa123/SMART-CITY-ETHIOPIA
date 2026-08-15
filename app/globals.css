@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: 'Unbounded', 'Outfit', sans-serif;
+    --font-body: 'DM Sans', 'Inter', sans-serif;
+    --font-ethiopic: 'Noto Serif Ethiopic', serif;
+    
+    --bg-primary: #050C15;
+    --bg-secondary: #0A1628;
+    --bg-surface: #0F1E35;
+    --accent-teal: #00C7B1;
+    --accent-gold: #F5A623;
+    --accent-green: #2ECC71;
+    --text-primary: #F0F4FF;
+    --text-secondary: #8A9BB5;
+    --border-color: #1A2D4A;
+  }
+
+  body {
+    @apply bg-[#050C15] text-[#F0F4FF] antialiased selection:bg-[#00C7B1]/30 selection:text-[#00C7B1];
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-ethiopic {
+    font-family: var(--font-ethiopic);
+  }
+}
+
+/* Custom Afro-Futurist Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050C15;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1A2D4A;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00C7B1;
+}
+
+/* Glassmorphism & Atmospheric Lighting */
+.glass-panel {
+  background: rgba(10, 22, 40, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(26, 45, 74, 0.6);
+}
+
+.glass-panel-glow {
+  background: rgba(10, 22, 40, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 199, 177, 0.25);
+  box-shadow: 0 0 30px rgba(0, 199, 177, 0.1);
+}
+
+.glass-card-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 199, 177, 0.4);
+  box-shadow: 0 12px 30px rgba(0, 199, 177, 0.15);
+}
+
+/* Animated Grid Canvas */
+.grid-mesh-bg {
+  background-image: radial-gradient(rgba(0, 199, 177, 0.15) 1px, transparent 1px),
+                    radial-gradient(rgba(245, 166, 35, 0.08) 1px, transparent 1px);
+  background-size: 40px 40px, 80px 80px;
+  background-position: 0 0, 20px 20px;
+}
+
+/* Text Shimmer Effect */
+.text-gradient-teal {
+  background: linear-gradient(135deg, #00C7B1 0%, #2ECC71 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #F5A623 0%, #FFD700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-ethiopia {
+  background: linear-gradient(90deg, #2ECC71 0%, #F5A623 50%, #EF4444 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

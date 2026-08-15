@@ -1,238 +1,532 @@
 <div align="center">
 
-<img src="https://img.shields.io/badge/AASCS-Smart%20City-00C7B1?style=for-the-badge&logoColor=white" alt="AASCS Badge"/>
-
 # 🏙️ Addis Ababa Smart City System (AASCS)
+### *የአዲስ አበባ ስማርት ሲቲ ዲጂታል መድረክ*
 
-### *Building Tomorrow's Addis — Today*
-**"The Digital Heart of Africa's Capital"**
+**"The Digital Heart of Africa's Capital — Building Tomorrow's Addis Today"**
 
-[![Next.js](https://img.shields.io/badge/Next.js-14-black?style=flat-square&logo=next.js)](https://nextjs.org)
-[![TypeScript](https://img.shields.io/badge/TypeScript-Strict-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com)
-[![Prisma](https://img.shields.io/badge/Prisma-ORM-2D3748?style=flat-square&logo=prisma)](https://www.prisma.io)
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed-Vercel-black?style=flat-square&logo=vercel)](https://vercel.com)
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-aascs.segnin.org-00C7B1?style=for-the-badge&logoColor=white)](https://aascs.segnin.org)
+[![Next.js](https://img.shields.io/badge/Next.js-14.2-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0_Strict-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Prisma](https://img.shields.io/badge/Prisma-ORM_7.8-2D3748?style=for-the-badge&logo=prisma&logoColor=white)](https://www.prisma.io/)
+[![NextAuth.js](https://img.shields.io/badge/Auth-NextAuth.js_v5-purple?style=for-the-badge&logoColor=white)](https://authjs.dev/)
+[![License](https://img.shields.io/badge/License-MIT-F5A623?style=for-the-badge&logoColor=white)](LICENSE)
 
----
+<br/>
 
-### 🌍 **[🌍 View Live Demo →](https://aascs.segnin.org)**
+[🌟 Key Highlights](#-key-highlights) •
+[🏛️ Executive Summary](#-executive-summary) •
+[📐 System Architecture](#-system-architecture) •
+[✨ Feature Modules](#-feature-modules) •
+[🏙️ Sub-City Municipal Grid](#️-sub-city-municipal-grid) •
+[🛠️ Tech Stack](#️-technology-stack) •
+[⚡ Quick Start](#-quick-start-guide) •
+[🔐 Security & Enterprise Compliance](#-security--enterprise-compliance) •
+[🎨 Design System](#-afro-futurist-design-system) •
+[📡 REST API v1](#-rest-api-v1-specification) •
+[🗺️ Smart City 2030 Roadmap](#️-smart-city-2030-roadmap)
 
 ---
 
 </div>
 
-## 📋 Overview
+## 🌟 Key Highlights
 
-The **Addis Ababa Smart City System (AASCS)** is the official digital platform of the Addis Ababa City Administration — a production-grade, full-stack web application serving citizens, government officials, investors, and international organizations including the African Union, World Bank, and UN-Habitat.
-
-Built with an **Afro-Futurist** design identity, deep navy palette, Ethiopian cultural motifs, and full **Amharic language support** — this platform represents Africa's capital city's commitment to digital transformation.
-
----
-
-## ✨ Features
-
-### 🌐 Public Portal
-| Feature | Description |
-|---------|-------------|
-| **Live City Dashboard** | Real-time AQI, bus fleet, traffic, and complaint stats |
-| **Interactive City Map** | SVG map of all 11 sub-cities with layer toggles |
-| **E-Services Hub** | 24+ online city services with multi-step application forms |
-| **Smart City Projects** | 10 flagship projects with progress tracking and milestones |
-| **News & Press** | Full article CMS with categories and tags |
-| **Transparency Portal** | Open data, budgets, tenders, FOI requests |
-| **About & FAQ** | Smart City 2030 roadmap, Mayor's message, 12-question FAQ |
-
-### 👤 Citizen Portal
-| Feature | Description |
-|---------|-------------|
-| **Citizen Dashboard** | Personalized overview of applications and notifications |
-| **Application Tracker** | Real-time status with reference numbers (AASCS-YYYY-CODE-XXXXXX) |
-| **Complaint System** | Submit and track city complaints with location pinning |
-| **Profile Management** | National ID, phone, sub-city, language preferences |
-
-### 🔐 Authentication
-- Ethiopian National ID (EID-XXXXXXXX format)
-- Email/Password with bcrypt hashing
-- Google + Microsoft OAuth
-- SMS OTP via Ethiopian phone numbers
-
-### 🛠️ Admin Panel
-- **Role-based access**: SUPER_ADMIN, ADMIN, OFFICIAL, VIEWER, AUDITOR
-- **Application management**: Bulk approve/reject, officer assignment
-- **Live KPI dashboard** with charts and activity feed
-- **User management** with role assignment
-- **Settings** including maintenance mode toggle
-- **Audit logging** for all admin actions
+- 🌍 **Unified Citizen E-Services**: 24+ municipal services digitized across 5 critical urban sectors with end-to-end status tracking.
+- ⚡ **Real-Time City Telemetry**: Live dashboard for Air Quality Index (AQI), municipal bus fleet telemetry, traffic density, and municipal workload.
+- 🗺️ **Interactive Sub-City Geospatial Map**: High-performance SVG & Mapbox integration covering all 11 sub-cities of Addis Ababa.
+- 🇪🇹 **Bilingual & Culturally Anchored**: Full dual-language engine in **English** and **Amharic (አማርኛ)** with bespoke Ethiopic typography (`Noto Serif Ethiopic`).
+- 🎨 **Afro-Futurist Institutional Aesthetics**: Tailored dark-mode UI blending deep navy substrates with electric teal (`#00C7B1`), Ethiopian gold (`#F5A623`), and emerald green (`#2ECC71`).
+- 🛡️ **Enterprise Security & National ID**: Multi-factor authentication supporting Ethiopian National ID (Fayda / EID), OAuth 2.0 (Google/Microsoft), and SMS OTP.
+- 📊 **Government Command Center**: Granular Role-Based Access Control (RBAC) with live KPIs, officer dispatching, and tamper-proof audit trails.
 
 ---
 
-## 🎨 Design System
+## 🏛️ Executive Summary
 
-**Aesthetic Direction**: *Afro-Futurist Institutional* — Ethiopian cultural identity meets 21st-century smart city technology.
+The **Addis Ababa Smart City System (AASCS)** is the flagship next-generation digital governance platform designed for the **City Government of Addis Ababa**. Serving a population of over **5.6+ million citizens**, government bureaus, international institutions (African Union, UNECA, World Bank, UN-Habitat), and international investors, AASCS streamlines civic operations into a resilient, transparent, and cloud-native ecosystem.
 
-```css
---color-bg-primary:     #050C15  /* Deep navy black */
---color-accent-primary: #00C7B1  /* Electric teal   */
---color-accent-gold:    #F5A623  /* Ethiopian gold  */
---color-accent-green:   #2ECC71  /* Ethiopian green */
+AASCS bridges the gap between citizens and municipal bureaucracy by replacing fragmented paperwork with transparent digital workflows, real-time civic issue reporting, automated service tracking (`AASCS-YYYY-CODE-XXXXXX`), and data-driven administrative decision-making.
+
+---
+
+## 📐 System Architecture
+
+### 🏗️ High-Level System Topology
+
+```mermaid
+flowchart TB
+    subgraph ClientLayer["🖥️ Client Presentation Layer"]
+        PublicWeb["🌐 Public Portal & Transparency Hub"]
+        CitizenPortal["👤 Authenticated Citizen Portal"]
+        AdminDashboard["🛡️ City Admin & Official Command Center"]
+        MobilePWA["📱 Responsive Mobile & PWA Clients"]
+    end
+
+    subgraph EdgeLayer["⚡ Edge & Routing Layer (Next.js 14)"]
+        NextRouter["Next.js App Router (SSR / SSG / ISR)"]
+        SecurityMW["Security Headers & CSRF Protection"]
+        AuthGuard["NextAuth.js v5 Auth Guard & RBAC Engine"]
+        ApiGateway["RESTful API Gateway (/api/v1/*)"]
+    end
+
+    subgraph ServiceLayer["⚙️ Core Application & Domain Services"]
+        ServiceEngine["E-Services Workflow Engine"]
+        CitizenService["Citizen Profile & EID Verification"]
+        TelemetryService["Live City Telemetry (AQI / Fleet / Traffic)"]
+        GeoService["Sub-City GIS & Geo-Tagging Service"]
+        NotificationEngine["Alerts, Email (Resend) & SMS (Twilio)"]
+        AuditEngine["Tamper-Proof Audit Logging"]
+    end
+
+    subgraph DataLayer["💾 Persistence & Infrastructure"]
+        PostgresDB[(PostgreSQL Database)]
+        PrismaORM["Prisma ORM v7.8 Client"]
+        RedisCache[("Redis Cache / Session Store")]
+        S3Storage[("AWS S3 Document Vault")]
+    end
+
+    ClientLayer --> NextRouter
+    NextRouter --> SecurityMW
+    SecurityMW --> AuthGuard
+    AuthGuard --> ApiGateway
+    ApiGateway --> ServiceLayer
+    ServiceEngine --> PrismaORM
+    CitizenService --> PrismaORM
+    TelemetryService --> RedisCache
+    GeoService --> PrismaORM
+    AuditEngine --> PrismaORM
+    NotificationEngine --> ServiceLayer
+    PrismaORM --> PostgresDB
+    ServiceEngine --> S3Storage
 ```
 
-**Fonts**: Unbounded (display) · DM Sans (body) · Noto Serif Ethiopic (Amharic)
+### 🔄 Citizen Application Lifecycle State Machine
 
-**Components**: Glassmorphism cards · Gradient borders · Animated counters · Live stat widgets · Multi-step forms · Responsive data tables
-
----
-
-## 🗂️ Project Structure
-
-```
-aascs/
-├── app/
-│   ├── (public)/          # Public pages (home, services, projects, news...)
-│   ├── (auth)/            # Login, register, forgot-password
-│   ├── portal/            # Citizen portal (dashboard, applications, complaints)
-│   ├── admin/             # Admin panel with sidebar layout
-│   └── api/v1/            # REST API routes
-├── components/
-│   ├── shared/            # Navbar, Footer, Hero, Pillars, LiveDashboard...
-│   ├── ui/                # Base UI primitives
-│   └── forms/             # Form components
-├── prisma/
-│   ├── schema.prisma      # Full database schema (13 models)
-│   └── seed.ts            # Realistic seed data
-└── public/                # Static assets
-```
-
----
-
-## 🗄️ Database Schema
-
-| Model | Description |
-|-------|-------------|
-| `User` | Citizens, officials, admins — with Amharic name support |
-| `Service` | 24 city services with categories, fees, processing time |
-| `Application` | Applications with reference numbers (AASCS-YYYY-CODE-XXXXXX) |
-| `Document` | Uploaded files for applications |
-| `ApplicationStatusHistory` | Full audit trail of status changes |
-| `Complaint` | Geo-tagged citizen complaints with priority/status |
-| `Project` | Smart city projects with milestones and progress |
-| `Article` | Bilingual news articles with CMS metadata |
-| `Appointment` | Scheduled meetings at city departments |
-| `Notification` | Real-time citizen notifications |
-| `Announcement` | Sitewide alert banners |
-| `AuditLog` | Admin action audit trail |
-
----
-
-## 🚀 API Routes
-
-```
-GET  /api/v1/dashboard          # Live city KPIs (cached 60s)
-GET  /api/v1/services           # List + filter city services
-GET  /api/v1/projects           # Smart city projects
-GET  /api/v1/articles           # News articles (paginated)
-POST /api/v1/applications       # Submit application
-POST /api/v1/complaints         # Submit complaint
-GET  /api/v1/auth/me            # Current user session
+```mermaid
+stateDiagram-v2
+    [*] --> DRAFT: Citizen Initiates Service Application
+    DRAFT --> SUBMITTED: Uploads Required Documents & Pays Fee
+    SUBMITTED --> UNDER_REVIEW: Automated Verification & Department Dispatch
+    UNDER_REVIEW --> PENDING_INFO: Additional Documents Requested
+    PENDING_INFO --> UNDER_REVIEW: Citizen Re-submits Information
+    UNDER_REVIEW --> IN_INSPECTION: Field / Physical Inspection (If Required)
+    IN_INSPECTION --> UNDER_REVIEW: Inspection Report Uploaded
+    UNDER_REVIEW --> APPROVED: Municipal Officer Final Approval
+    UNDER_REVIEW --> REJECTED: Application Rejected with Reason
+    APPROVED --> ISSUED: Digital Certificate / Permit Issued (QR Verified)
+    ISSUED --> [*]
+    REJECTED --> [*]
 ```
 
 ---
 
-## 🛠️ Tech Stack
+## ✨ Feature Modules
 
-| Layer | Technology |
-|-------|-----------|
-| **Framework** | Next.js 14 (App Router, SSR + SSG) |
-| **Language** | TypeScript (strict mode) |
-| **Styling** | Tailwind CSS + custom CSS variables |
-| **Animations** | Framer Motion, CSS keyframes |
-| **ORM** | Prisma |
-| **Database** | PostgreSQL |
-| **Auth** | NextAuth.js v5 |
-| **Icons** | Lucide React |
-| **Hosting** | Vercel |
+### 🌐 1. Public Portal & Open City Intelligence
+| Feature | Technical Capability | Impact |
+|:---|:---|:---|
+| **Live City Dashboard** | Real-time sensor polling for AQI, fleet dispatch rates, traffic density, and municipal resolution speeds | Transparent, real-time public telemetry |
+| **Interactive City Map** | Vector-rendered 11 sub-city boundaries with spatial filter toggles (Hospitals, Fire Stations, Police, Sub-City Hubs) | Intuitive civic infrastructure exploration |
+| **Smart Projects 2030** | Milestone tracking, capital budget disclosures, and real-time completion percentages for mega projects | Fosters civic trust and international investor engagement |
+| **Transparency & Open Data** | Downloadable municipal datasets, annual budgets, open procurement tenders, and FOI submission forms | High municipal integrity & anti-corruption compliance |
+| **News & Official Press** | Bilingual CMS articles with category filtering, press statements, and speech transcripts | Official communication hub for the City Administration |
+
+### 👤 2. Citizen Experience Portal
+- **Unified Citizen Dashboard**: Comprehensive hub displaying active applications, scheduled appointments, and pending payments.
+- **Universal Application Tracker**: Search and inspect applications using standard reference format: `AASCS-YYYY-CODE-XXXXXX`.
+- **Geo-Tagged Incident & Grievance Reporting**: Submit reports (water leaks, road damage, electrical hazards, sanitation) with GPS coordinates and photo evidence.
+- **Digital Document Vault**: Securely store and reuse authenticated birth certificates, Kebele IDs, tax clearances, and property deeds.
+
+### 🛡️ 3. Government & Administrative Command Center
+- **Granular RBAC Architecture**:
+  - `SUPER_ADMIN`: System-wide configuration, tenant settings, maintenance mode, security audits.
+  - `ADMIN`: Sub-city level administration, user management, metric overrides.
+  - `OFFICIAL`: Review, inspect, approve, or reject assigned municipal applications.
+  - `AUDITOR`: Read-only access to all municipal operations, audit trails, and financial transactions.
+  - `VIEWER`: Read-only reporting access for municipal research and analytics.
+- **Workflow Automation**: Automated routing of applications to respective sub-city offices based on citizen residency.
+- **Immutable Audit Logging**: Every administrative action (approval, rejection, fee adjustment, status change) is permanently logged with timestamps and actor metadata.
 
 ---
 
-## ⚡ Quick Start
+## 🏙️ Sub-City Municipal Grid
+
+AASCS provides integrated administrative coverage across all **11 Sub-Cities (ክፍለ ከተሞች)** of Addis Ababa:
+
+| Sub-City (ክፍለ ከተማ) | Geographic Code | Key Facilities & Focus | Municipal Hub Status |
+|:---|:---:|:---|:---:|
+| **Bole (ቦሌ)** | `AA-BO` | Diplomatic Zone, Bole Int. Airport, Commercial Hubs | 🟢 Operational |
+| **Kirkos (ቂርቆስ)** | `AA-KI` | African Union HQ, UNECA, Financial District, Meskel Sq | 🟢 Operational |
+| **Arada (አራዳ)** | `AA-AR` | City Hall, Cultural Centers, National Museum, Piassa | 🟢 Operational |
+| **Addis Ketema (አዲስ ከተማ)** | `AA-AK` | Merkato Commercial Center, Logistics & Transit Hubs | 🟢 Operational |
+| **Yeka (የካ)** | `AA-YE` | Residential Expansions, Entoto Park, Eco-Tourism | 🟢 Operational |
+| **Nifas Silk-Lafto (ንፋስ ስልክ ላፍቶ)** | `AA-NL` | Industrial Zones, Manufacturing, Southern Corridors | 🟢 Operational |
+| **Kolfe Keranio (ኮልፌ ቀራኒዮ)** | `AA-KK` | Western Commercial Corridors, SME Incubators | 🟢 Operational |
+| **Gullele (ጉለሌ)** | `AA-GU` | Addis Ababa University, Botanical Gardens, Entoto Ridge | 🟢 Operational |
+| **Lideta (ልደታ)** | `AA-LI` | Federal High Courts, Urban Renewal Housing, Commerce | 🟢 Operational |
+| **Akaky Kaliti (አቃቂ ቃሊቲ)** | `AA-AKK` | Dry Port, Rail Freight Terminal, Industrial Parks | 🟢 Operational |
+| **Lemi Kura (ለሚ ኩራ)** | `AA-LK` | New Administrative District, High-Tech Parks, Modern Estates | 🟢 Operational |
+
+---
+
+## 💼 24+ Municipal E-Services Portfolio
+
+```
+AASCS E-Services Hub
+├── 🏛️ Civil Registration & Vital Statistics
+│   ├── Birth Certificate Issuance & Authentication
+│   ├── Kebele Resident Identification & Renewal
+│   ├── Marriage & Civil Status Certificates
+│   └── Death Registration & Succession Certification
+├── 🏗️ Land, Urban Planning & Housing
+│   ├── Building Permit Application & Plan Review
+│   ├── Land Title Registration & Deed Transfer
+│   ├── Condominium Housing Lottery & Verification
+│   └── Commercial Property Zoning Clearance
+├── 💰 Revenue, Commerce & Investment
+│   ├── Business License Registration & Renewal
+│   ├── Municipal Property Tax Assessment & Payment
+│   ├── Commercial Advertising & Signage Permits
+│   └── Local Investment Incentive Applications
+├── 🚊 Urban Mobility & Transportation
+│   ├── Public Transport Anbessa / Sheger Card Top-up
+│   ├── Commercial Vehicle Operating Permits
+│   ├── Parking Zone Subscription Management
+│   └── Traffic Violation Fine Payment Gateway
+└── 🌿 Utilities, Sanitation & Environment
+    ├── Water & Sewerage Connection Requests (AAWSA)
+    ├── Waste Management & Commercial Disposal Permits
+    ├── Green Space Adoption & Tree Planting Certification
+    └── Environmental Impact Assessment (EIA) Filings
+```
+
+---
+
+## 🛠️ Technology Stack
+
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│                          FULL STACK ECOSYSTEM                          │
+└────────────────────────────────────────────────────────────────────────┘
+  CORE FRAMEWORK      ▶  Next.js 14.2 (App Router, Server Actions, SSR/SSG)
+  PRIMARY LANGUAGE    ▶  TypeScript 5.0+ (Strict Type-Safety)
+  STYLING & DESIGN    ▶  Tailwind CSS 3.4 + Custom CSS Design Tokens
+  ANIMATIONS & UI     ▶  Framer Motion, Radix UI Primitives, Lucide Icons
+  DATA VISUALIZATION  ▶  Recharts 3.8 (Dynamic Telemetry & KPI Charts)
+  ORM & DATABASE      ▶  Prisma ORM 7.8 + PostgreSQL 16
+  AUTHENTICATION      ▶  NextAuth.js v5 (OAuth 2.0, National ID, Credentials)
+  VALIDATION & FORMS  ▶  Zod 4.4 + React Hook Form + Hookform Resolvers
+  STATE MANAGEMENT    ▶  Zustand 5.0
+  CACHE & SESSIONS    ▶  Redis / Upstash
+  CLOUD STORAGE       ▶  AWS S3 / Cloudflare R2 Document Vault
+  COMMUNICATIONS      ▶  Resend (Email) + Twilio (SMS Notifications)
+  DEPLOYMENT & EDGE   ▶  Vercel Edge Network + Cloudflare CDN / WAF
+```
+
+---
+
+## ⚡ Quick Start Guide
+
+### 📋 Prerequisites
+
+Make sure you have the following installed on your development machine:
+- **Node.js**: `v18.18.0` or later (LTS recommended)
+- **Package Manager**: `npm` (v10+), `pnpm` (v8+), or `yarn` (v1.22+)
+- **PostgreSQL**: `v15+` instance (local or hosted e.g. Neon, Supabase, AWS RDS)
+- **Git**: `v2.40+`
+
+### 📥 1. Clone the Repository
 
 ```bash
-# Clone the repository
-git clone https://github.com/YOUR_USERNAME/aascs-smart-city.git
-cd aascs-smart-city
+git clone https://github.com/SegniNegasa123/SMART-CITY-ETHIOPIA.git
+cd SMART-CITY-ETHIOPIA
+```
 
-# Install dependencies
+### 📦 2. Install Dependencies
+
+```bash
 npm install
+```
 
-# Set up environment variables
+### ⚙️ 3. Configure Environment Variables
+
+Create your local `.env.local` file from the provided `.env.example`:
+
+```bash
 cp .env.example .env.local
-# Fill in your DATABASE_URL, NEXTAUTH_SECRET, etc.
+```
 
-# Generate Prisma client
+Configure your environment variables in `.env.local`:
+
+```env
+# Database Connection (PostgreSQL)
+DATABASE_URL="postgresql://postgres:yourpassword@localhost:5432/aascs_db?schema=public"
+REDIS_URL="redis://localhost:6379"
+
+# NextAuth v5 Security
+NEXTAUTH_URL="http://localhost:3000"
+NEXTAUTH_SECRET="generate-a-32-byte-secret-using-openssl-rand-hex-32"
+
+# OAuth Providers
+GOOGLE_CLIENT_ID="your-google-client-id"
+GOOGLE_CLIENT_SECRET="your-google-client-secret"
+MICROSOFT_CLIENT_ID="your-microsoft-client-id"
+MICROSOFT_CLIENT_SECRET="your-microsoft-client-secret"
+
+# AWS S3 Storage (Secure Document Vault)
+AWS_ACCESS_KEY_ID="your-aws-key"
+AWS_REGION="af-south-1"
+AWS_SECRET_ACCESS_KEY="your-aws-secret"
+AWS_BUCKET_NAME="aascs-secure-documents"
+
+# Mapbox Geospatial SDK
+NEXT_PUBLIC_MAPBOX_TOKEN="pk.your-mapbox-token-here"
+
+# Notifications (Email & SMS)
+RESEND_API_KEY="re_your-resend-api-key"
+TWILIO_ACCOUNT_SID="AC_your-twilio-sid"
+TWILIO_AUTH_TOKEN="your-twilio-token"
+TWILIO_PHONE_NUMBER="+251900000000"
+
+# Application Metadata
+NEXT_PUBLIC_APP_URL="http://localhost:3000"
+NEXT_PUBLIC_APP_NAME="Addis Ababa Smart City System"
+```
+
+### 🗄️ 4. Initialize Database & Seed
+
+```bash
+# Generate Prisma Client bindings
 npx prisma generate
 
-# Run database migrations
-npx prisma migrate dev
+# Apply migrations to PostgreSQL
+npx prisma migrate dev --name init
 
-# Seed with realistic data
-npx ts-node prisma/seed.ts
+# Populate database with realistic Addis Ababa municipal seed data
+npm run db:seed
+```
 
-# Start development server
+### 🚀 5. Run the Development Server
+
+```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open **[http://localhost:3000](http://localhost:3000)** in your browser.
 
 ---
 
-## 🌍 Pages
+## 🎨 Afro-Futurist Design System
 
-| Route | Description |
-|-------|-------------|
-| `/` | Home — Hero, pillars, live stats, projects, news |
-| `/dashboard` | Live city dashboard with real-time data |
-| `/services` | 24+ online city services hub |
-| `/services/[slug]` | Individual service with multi-step application |
-| `/projects` | Smart city projects with filters |
-| `/projects/[slug]` | Project detail with timeline and budget |
-| `/news` | City news and announcements |
-| `/news/[slug]` | Full article page |
-| `/map` | Interactive Addis Ababa city map |
-| `/about` | Smart City 2030 vision, FAQ, partnerships |
-| `/contact` | Contact form + department directory |
-| `/transparency` | Open data, tenders, FOI requests |
-| `/auth/login` | Citizen sign-in |
-| `/auth/register` | New citizen registration |
-| `/portal` | Citizen dashboard (authenticated) |
-| `/admin/dashboard` | Admin KPI overview (admin only) |
+AASCS utilizes a custom **Afro-Futurist Institutional** design token architecture engineered to bridge modern institutional trust with vibrant Ethiopian cultural heritage:
 
----
+```
+┌──────────────────┬───────────┬────────────────────────────────────────┐
+│ Token Identifier │ Hex Code  │ Semantic Usage                         │
+├──────────────────┼───────────┼────────────────────────────────────────┤
+│ --bg-primary     │ #050C15   │ Base canvas, ultra-deep navy space      │
+│ --bg-secondary   │ #0A1628   │ Card substrates, surface elevation 1   │
+│ --bg-surface     │ #0F1E35   │ Modals, popovers, dropdown containers   │
+│ --accent-teal    │ #00C7B1   │ Primary brand, interactive focus, glow │
+│ --accent-gold    │ #F5A623   │ Ethiopian gold, featured milestones     │
+│ --accent-green   │ #2ECC71   │ Ethiopian emerald, verified statuses   │
+│ --text-primary   │ #F0F4FF   │ High-contrast primary headings & body  │
+│ --text-secondary │ #8A9BB5   │ Muted metadata, captions, timestamps   │
+│ --border-color   │ #1A2D4A   │ Glassmorphic card & table separators   │
+└──────────────────┴───────────┴────────────────────────────────────────┘
+```
 
-## 🌐 Internationalization
-
-Full **English** and **Amharic (አማርኛ)** support:
-- Navigation labels, page titles, form labels
-- Amharic visible on every major page
-- Language toggle persisted per session
-- Noto Serif Ethiopic font loaded for all Amharic text
+### 🔤 Typography Specification
+- **Display Font**: `Unbounded` / `Outfit` — Modern geometric sans-serif for numbers, KPI counters, and heroic headlines.
+- **Body Font**: `DM Sans` / `Inter` — High-legibility sans-serif optimized for multi-step municipal forms and dense tables.
+- **Ethiopic Font**: `Noto Serif Ethiopic` — Fully hinted typographic engine for crystal-clear Amharic script rendering.
 
 ---
 
-## 🏛️ About
+## 📡 REST API v1 Specification
 
-This platform serves:
-- **5.6M+ Addis Ababa residents** accessing city services
-- **Government officials** across all 11 sub-cities
-- **International organizations**: African Union, World Bank, UNDP, UN-Habitat
-- **Investors & development partners** monitoring project progress
-- **Researchers & journalists** accessing open city data
+All API endpoints follow standard RESTful conventions and return standardized JSON payloads with strict error envelopes:
+
+```json
+{
+  "success": true,
+  "timestamp": "2026-08-15T14:38:00Z",
+  "data": { ... },
+  "meta": { "page": 1, "total": 120 }
+}
+```
+
+| Method | Route | Auth Required | Description |
+|:---:|:---|:---:|:---|
+| `GET` | `/api/v1/dashboard` | Public | Live city-wide telemetry, AQI index, and municipal KPIs (cached 60s) |
+| `GET` | `/api/v1/services` | Public | Catalog of all 24+ municipal services with category filters & fee schedules |
+| `GET` | `/api/v1/services/:slug` | Public | Comprehensive service requirements, SLA duration, and required document schema |
+| `POST` | `/api/v1/applications` | Citizen / Official | Submit a new municipal service application with encrypted payload |
+| `GET` | `/api/v1/applications/track/:ref` | Public / Citizen | Query real-time status of application `AASCS-YYYY-CODE-XXXXXX` |
+| `POST` | `/api/v1/complaints` | Citizen | Submit a geo-tagged municipal grievance with photo attachment |
+| `GET` | `/api/v1/projects` | Public | Query Smart City 2030 flagship projects, milestone timelines & budgets |
+| `GET` | `/api/v1/articles` | Public | Paginated press releases, municipal gazettes, and city announcements |
+| `GET` | `/api/v1/transparency/tenders` | Public | Open municipal procurement tenders, bid closing dates, and documents |
+| `GET` | `/api/v1/auth/me` | Authenticated | Fetch authenticated user session profile, verified EID, and permissions |
+| `PATCH` | `/api/v1/admin/applications/:id` | Official / Admin | Update application state (`APPROVED`, `REJECTED`, `IN_INSPECTION`) |
 
 ---
+
+## 🗄️ Database Domain Schema
+
+The AASCS relational schema is defined declaratively using **Prisma ORM** across 13 highly normalized models:
+
+```mermaid
+erDiagram
+    USER ||--o{ APPLICATION : submits
+    USER ||--o{ COMPLAINT : reports
+    USER ||--o{ APPOINTMENT : books
+    USER ||--o{ NOTIFICATION : receives
+    USER ||--o{ AUDIT_LOG : triggers
+
+    SERVICE ||--o{ APPLICATION : categorizes
+    APPLICATION ||--o{ DOCUMENT : contains
+    APPLICATION ||--o{ APPLICATION_STATUS_HISTORY : tracks
+    
+    PROJECT ||--o{ PROJECT_MILESTONE : contains
+    ARTICLE ||--o{ ARTICLE_TAG : tagged_with
+
+    USER {
+        string id PK
+        string nationalId UK
+        string email UK
+        string phone
+        string nameEn
+        string nameAm
+        enum role "SUPER_ADMIN | ADMIN | OFFICIAL | VIEWER | CITIZEN"
+        string subCity
+        datetime createdAt
+    }
+
+    SERVICE {
+        string id PK
+        string slug UK
+        string titleEn
+        string titleAm
+        enum category
+        decimal feeETB
+        int processingDays
+        boolean isActive
+    }
+
+    APPLICATION {
+        string id PK
+        string referenceNumber UK
+        string userId FK
+        string serviceId FK
+        enum status "DRAFT | SUBMITTED | UNDER_REVIEW | APPROVED | REJECTED"
+        string subCity
+        datetime submittedAt
+    }
+
+    COMPLAINT {
+        string id PK
+        string userId FK
+        string category
+        float latitude
+        float longitude
+        string subCity
+        enum priority "LOW | MEDIUM | HIGH | URGENT"
+        enum status "OPEN | IN_PROGRESS | RESOLVED"
+    }
+
+    AUDIT_LOG {
+        string id PK
+        string actorId FK
+        string action
+        string entityType
+        string entityId
+        json diffPayload
+        string ipAddress
+        datetime timestamp
+    }
+```
+
+---
+
+## 🔐 Security & Enterprise Compliance
+
+AASCS enforces zero-trust institutional security protocols designed to safeguard citizen privacy and critical municipal infrastructure:
+
+1. **Security Headers (Strict CSP)**:
+   Configured in `next.config.ts` with strict frame-busting (`X-Frame-Options: DENY`), MIME-type sniffing prevention (`nosniff`), Referrer Policy (`strict-origin-when-cross-origin`), and XSS filters.
+2. **National ID Verification (Fayda Integration)**:
+   Cryptographically hashes and validates citizen identity credentials to prevent duplicate account creation and identity theft.
+3. **Role-Based Access Control (RBAC)**:
+   Enforced at middleware edge runtime and API route handlers to ensure administrative endpoints cannot be accessed by unauthorized actors.
+4. **Data Protection & Encryption**:
+   - All passwords hashed using `bcrypt` (12 salt rounds).
+   - Sensitive uploaded citizen documents are encrypted at rest on AWS S3 with signed ephemeral URLs.
+   - Database connections secured via SSL/TLS in transit.
+5. **Tamper-Proof Auditing**:
+   Every state modification generates an immutable `AuditLog` entry tracking actor ID, action type, IP address, and payload delta.
+
+---
+
+## 🗺️ Smart City 2030 Roadmap
+
+- [x] **Phase 1: Core Portal & Citizen Services (2024–2025)**
+  - Public portal launch & Afro-Futurist design identity
+  - 24+ core municipal e-services digitization
+  - Citizen complaint submission & tracking system
+  - 11 Sub-city administrative dashboard & triage system
+- [ ] **Phase 2: IoT Telemetry & Mobility Integration (Q3 2025–Q2 2026)**
+  - Integration with Addis Ababa Light Rail Transit (AALRT) live scheduling
+  - Real-time IoT sensor network deployment for city-wide air quality & flood monitoring
+  - Intelligent traffic signal optimization system (ITS)
+- [ ] **Phase 3: Digital Currency & Smart Utilities (2026–2027)**
+  - Direct integration with National Digital ID (Fayda) biometric login
+  - Telebirr & National Payment Gateway (EthSwitch) instant settlements
+  - Automated smart water & electric meter reading telemetry
+- [ ] **Phase 4: AI Municipal Assistant (2027–2030)**
+  - Multilingual AI voice & text agent (Amharic, Afaan Oromoo, Tigrinya, English)
+  - Predictive urban infrastructure maintenance and dispatching
+
+---
+
+## 🤝 Contributing Guidelines
+
+We welcome contributions from software engineers, civic technologists, and designers committed to building open-source public digital infrastructure.
+
+1. **Fork the Project**
+2. **Create your Feature Branch**:
+   ```bash
+   git checkout -b feature/InnovativeFeature
+   ```
+3. **Commit your Changes**:
+   ```bash
+   git commit -m 'feat: Add innovative sub-city GIS layer'
+   ```
+4. **Push to the Branch**:
+   ```bash
+   git push origin feature/InnovativeFeature
+   ```
+5. **Open a Pull Request** with a detailed summary and screenshots/screen recordings.
+
+---
+
+## 📄 License & Attribution
+
+Distributed under the **MIT License**. See `LICENSE` for more information.
+
+```
+Copyright (c) 2025-2026 Segni Seyoum Negasa (AASCS Team)
+Addis Ababa City Administration Digital Transformation Initiative
+```
+
+<br/>
 
 <div align="center">
 
-**© 2025 Addis Ababa City Administration · ሁሉም መብቶች የተጠበቁ ናቸው**
+**Developed with ❤️ for Addis Ababa — Africa's Diplomatic Capital**
 
-*Built with ❤️ for Africa's Diplomatic Capital*
+[⬆ Back to Top](#-addis-ababa-smart-city-system-aascs)
 
 </div>
